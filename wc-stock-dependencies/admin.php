@@ -169,7 +169,7 @@ namespace StockDependenciesForWooCommerceAdmin {
             }
           }
         }
-        if (count($stock_dependency_settings->stock_dependency) == 0) {
+        if (is_countable($stock_dependency_settings->stock_dependency) && count($stock_dependency_settings->stock_dependency) == 0) {
           $stock_dependency_settings->enabled = false;
           $meta_updated = true;
         }
