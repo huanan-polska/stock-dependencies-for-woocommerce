@@ -163,7 +163,7 @@ namespace StockDependenciesForWooCommerceAdmin {
             $meta_updated = true;
           } else {
             $stock_dependency_product = wc_get_product($stock_dependency->product_id);
-            if ( $stock_dependency_product->get_sku() != $stock_dependency->sku ) {
+            if ( is_callable $stock_dependency_product->get_sku && $stock_dependency_product->get_sku() != $stock_dependency->sku ) {
               $stock_dependency->sku = $stock_dependency_product->get_sku();
               $meta_updated = true;
             }
